@@ -51,6 +51,10 @@ const Footer = () => {
             </a>
           </div>
 
+           <div className="text-gray-400 text-[10px] font-bold uppercase tracking-[0.2em] text-center">
+            Developed By <span className="text-gray-600"><a href="https://www.instagram.com/_suman_369.env/" target="_blank" rel="noopener noreferrer">Suman Kar</a></span>
+          </div>
+
         </div>
       </div>
     </footer>
