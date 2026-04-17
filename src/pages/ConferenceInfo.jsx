@@ -143,27 +143,77 @@ const ConferenceInfo = () => {
             </div>
           </div>
 
-          {/* Conference Overview Card */}
-          <div ref={addToSectionRefs} className="group p-8 md:p-12 rounded-[2rem] bg-gray-900 text-white transition-all hover:shadow-2xl hover:shadow-black/20">
-            <div className="inline-flex items-center gap-3 mb-6 text-[#b8f29d]">
-              <div className="w-12 h-1 bg-current rounded-full" />
-              <h3 className="text-2xl font-black tracking-tight uppercase">Event Overview</h3>
+          {/* Conference Day & Time Card */}
+          <div ref={addToSectionRefs} className="group rounded-[2rem] bg-gray-900 text-white overflow-hidden transition-all hover:shadow-2xl hover:shadow-black/20 relative">
+            {/* Glow blobs */}
+            <div className="absolute top-0 left-0 w-full h-full pointer-events-none overflow-hidden">
+              <div className="absolute -top-10 -left-10 w-64 h-64 bg-[#b8f29d] opacity-[0.07] rounded-full blur-[80px]" />
+              <div className="absolute bottom-0 right-0 w-48 h-48 bg-[#059669] opacity-[0.08] rounded-full blur-[60px]" />
             </div>
-            <div className="space-y-6 text-lg text-gray-400 leading-relaxed">
-              <p>
-                IC-RDAMSE 2026 converges global expertise to discuss "Recent Developments and Applications in Materials Science".
-              </p>
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-8">
+
+            <div className="relative z-10 p-8 md:p-10">
+              {/* Header */}
+              <div className="inline-flex items-center gap-3 mb-7 text-[#b8f29d]">
+                <div className="w-12 h-1 bg-current rounded-full" />
+                <h3 className="text-2xl font-black tracking-tight uppercase">Date &amp; Schedule</h3>
+              </div>
+
+              {/* Day cards */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
+                {/* Day 1 */}
+                <div className="relative p-5 rounded-2xl bg-[#b8f29d]/10 border border-[#b8f29d]/20 hover:bg-[#b8f29d]/15 transition-colors">
+                  <span className="absolute top-3 right-3 px-2 py-0.5 text-[9px] font-black uppercase tracking-widest bg-[#b8f29d] text-gray-900 rounded-full">Day 1</span>
+                  <p className="text-[10px] font-black text-[#b8f29d] uppercase tracking-widest mb-1">Thursday</p>
+                  <p className="text-3xl font-black text-white leading-none">07</p>
+                  <p className="text-sm font-bold text-gray-400">May 2026</p>
+                  <div className="mt-4 pt-3 border-t border-white/10 flex items-center gap-2">
+                    <svg className="w-4 h-4 text-[#b8f29d] flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <span className="text-xs font-bold text-gray-300">09:00 AM – 06:00 PM</span>
+                  </div>
+                </div>
+
+                {/* Day 2 */}
+                <div className="relative p-5 rounded-2xl bg-[#059669]/10 border border-[#059669]/20 hover:bg-[#059669]/15 transition-colors">
+                  <span className="absolute top-3 right-3 px-2 py-0.5 text-[9px] font-black uppercase tracking-widest bg-[#059669] text-white rounded-full">Day 2</span>
+                  <p className="text-[10px] font-black text-[#059669] uppercase tracking-widest mb-1">Friday</p>
+                  <p className="text-3xl font-black text-white leading-none">08</p>
+                  <p className="text-sm font-bold text-gray-400">May 2026</p>
+                  <div className="mt-4 pt-3 border-t border-white/10 flex items-center gap-2">
+                    <svg className="w-4 h-4 text-[#059669] flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <span className="text-xs font-bold text-gray-300">09:00 AM – 05:00 PM</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Event timeline pills */}
+              <div className="space-y-2 mb-6">
                 {[
-                  { id: 6, color: "blue", label: "Clean Water" },
-                  { id: 7, color: "yellow", label: "Clean Energy" },
-                  { id: 13, color: "green", label: "Climate Action" }
-                ].map(sdg => (
-                  <div key={sdg.id} className="flex flex-col items-center p-4 rounded-xl bg-white/5 border border-white/10 text-center">
-                    <span className={`text-${sdg.color}-400 text-2xl font-black mb-1`}>{sdg.id}</span>
-                    <span className="text-[10px] font-bold uppercase tracking-wider">{sdg.label}</span>
+                  { time: "09:00 AM", event: "Registration & Welcome", dot: "bg-[#b8f29d]" },
+                  { time: "10:00 AM", event: "Inaugural Ceremony", dot: "bg-emerald-400" },
+                  { time: "11:30 AM", event: "Keynote Sessions", dot: "bg-teal-400" },
+                  { time: "02:00 PM", event: "Technical Paper Presentations", dot: "bg-[#059669]" },
+                  { time: "05:00 PM", event: "Valedictory & Closing", dot: "bg-gray-400" },
+                ].map((item, i) => (
+                  <div key={i} className="flex items-center gap-3 px-4 py-2.5 rounded-xl bg-white/5 border border-white/5 hover:border-white/10 transition-colors">
+                    <span className={`w-2 h-2 rounded-full flex-shrink-0 ${item.dot}`} />
+                    <span className="text-[10px] font-black text-gray-500 w-16 flex-shrink-0">{item.time}</span>
+                    <span className="text-xs font-bold text-gray-300">{item.event}</span>
                   </div>
                 ))}
+              </div>
+
+              {/* Venue pill */}
+              <div className="flex items-center gap-3 p-4 rounded-2xl bg-white/5 border border-white/10">
+                <span className="text-xl">📍</span>
+                <div>
+                  <p className="text-[10px] font-black text-gray-500 uppercase tracking-widest">Venue</p>
+                  <p className="text-sm font-black text-white leading-snug">Dr. Sudhir Chandra Sur Institute of Technology</p>
+                  <p className="text-xs text-gray-400 font-semibold">Salt Lake, Sector-I, Kolkata</p>
+                </div>
               </div>
             </div>
           </div>

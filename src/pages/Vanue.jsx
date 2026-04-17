@@ -54,7 +54,7 @@ const Vanue = () => {
                 rel="noopener noreferrer"
                 className="px-6 md:px-8 py-3 md:py-4 bg-gray-900 text-white rounded-2xl md:rounded-full font-bold shadow-xl hover:bg-[#059669] hover:scale-105 transition-all duration-300 cursor-pointer inline-flex items-center gap-2 text-sm md:text-base"
               >
-                <span>Navigate on Google Maps</span>
+                <span>See on Google Maps</span>
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
               </a>
             </div>

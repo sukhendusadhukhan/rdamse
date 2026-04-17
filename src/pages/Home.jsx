@@ -149,15 +149,23 @@ const Home = () => {
 
           {/* Call to Action */}
           <div ref={ctaRef} className="flex flex-wrap items-center justify-center gap-4">
-            <button className="group relative px-10 py-4 bg-gray-900 text-white rounded-full text-lg font-bold shadow-2xl hover:scale-105 active:scale-95 transition-all overflow-hidden cursor-pointer">
-              <span className="relative z-10 flex items-center gap-3">
-                <Link to="/submission">Register Now</Link>
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 group-hover:translate-x-2 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                </svg>
+            <div className="relative">
+              <button
+                disabled
+                className="relative px-10 py-4 bg-gray-400 text-white/70 rounded-full text-lg font-bold shadow-md overflow-hidden cursor-not-allowed opacity-60 select-none"
+              >
+                <span className="relative z-10 flex items-center gap-3">
+                  Register Now
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
+                </span>
+              </button>
+              {/* Coming soon badge */}
+              <span className="absolute -top-2.5 -right-2 px-2.5 py-0.5 text-[9px] font-black uppercase tracking-widest bg-amber-400 text-amber-900 rounded-full shadow-sm border border-amber-300 whitespace-nowrap">
+                Coming Soon
               </span>
-              <div className="absolute inset-0 bg-gradient-to-r from-[#b8f29d] to-[#059669] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-            </button>
+            </div>
           </div>
         </div>
 

@@ -43,37 +43,33 @@ const Committee = () => {
     patrons: [
       { name: "Sardar Haranjit Singh", role: "Joint MD, JIS Group" },
       { name: "Sardar Amrik Singh", role: "Deputy MD, JIS Group" },
-      { name: "Ms Manpreet Kaur", role: "CEO, JIS Group" },
       { name: "Sardar Simarpreet Singh", role: "Director, JIS Group" },
+      { name: "Ms Manpreet Kaur", role: "CEO, JIS Group" },
       { name: "Ms Jaspreet Kaur", role: "Director, JIS Group" },
       { name: "Sardar Harjot Singh", role: "Director, JIS Group" },
       { name: "Sardar Amanjot Singh", role: "Director, JIS Group" },
       { name: "Sardar Anmol Singh Narula", role: "Director, JIS Group" },
-      { name: "Prof. (Dr.) Ajay Kumar Ray", role: "Director JISIASR, Kolkata, India" },
-      { name: "Prof. (Dr.) Bhabes Bhattacharya", role: "VC JIS University, Kolkata, India" },
+      { name: "Prof. (Dr.) Ajay Kumar Ray", role: "Director JISIASR, Kolkata" },
+      { name: "Prof. (Dr.) Neeraj Saxena", role: "Pro Chancellor, JIS University" },
     ],
-    convenors: [
-      { name: "Dr. Dipankar Das", role: "HoD, BSH, DSCSITSC" },
-      { name: "Dr. Biswajit Das", role: "Asst. Prof., BSH, DSCSITSC" },
-    ],
-    jtConvenors: [
-      { name: "Dr. Sukhendu Sadhukhan", role: "Asst. Prof., BSH, DSCSITSC" },
-    ],
+    programChair: { name: "Prof. (Dr.) Saradindu Panda", role: "Principal, SURTECH" },
+    convenor: { name: "Dr. Dipankar Das", role: "HoD, BSH, SurTech" },
+    jtCoConvenor: { name: "Dr. Biswajit Das", role: "Asst. Prof., BSH, SurTech" },
     members: [
-      { name: "Dr. Kausik Sardar", role: "Asst. Prof., BSH, DSCSITSC" },
-      { name: "Ms. Neha Saha", role: "Asst. Prof., BSH, DSCSITSC" },
-      { name: "Dr. Debasish Sadhukhan", role: "Asst. Prof., BSH, DSCSITSC" },
-      { name: "Dr. Amit Samadder", role: "Asst. Prof., BSH, DSCSITSC" },
-      { name: "Ms. Debasmita Roy Chowdhury", role: "Asst. Prof., BSH, DSCSITSC" },
-      { name: "Ms. Nibedita Biswas", role: "Asst. Prof., BSH, DSCSITSC" },
-      { name: "Dr. Shayari Basu", role: "Asst. Prof., BSH, DSCSITSC" },
+      { name: "Dr. Sukhendu Sadhukhan", role: "Asst. Prof., BSH, SurTech" },
+      { name: "Dr. Kausik Sardar", role: "Asst. Prof., BSH, SurTech" },
+      { name: "Ms. Neha Saha", role: "Asst. Prof., BSH, SurTech" },
+      { name: "Dr. Debasish Sadhukhan", role: "Asst. Prof., BSH, SurTech" },
+      { name: "Dr. Amit Samadder", role: "Asst. Prof., BSH, SurTech" },
+      { name: "Ms. Debasmita Roy Chowdhury", role: "Asst. Prof., BSH, SurTech" },
+      { name: "Ms. Nibedita Biswas", role: "Asst. Prof., BSH, SurTech" },
+      { name: "Dr. Shayari Basu", role: "Asst. Prof., BSH, SurTech" },
     ]
   };
 
   const advisoryCommittee = [
-    { name: "Prof. (Dr.) Saradindu Panda", role: "Principal, DSCSITSC" },
     { name: "Prof. (Dr.) Nitin Chattopadhyay", role: "Program Chair, RDAMSE 2025 | President, Indian Photobiology Society | Professor, Dept. of Chemistry, Jadavpur University" },
-    { name: "Prof. (Dr.) Chatiiranjan Sinha", role: "Program Chair, RDAMSE 2025 | Secretory, Indian Photobiology Society | Professor, Dept. of Chemistry, Jadavpur University" },
+    { name: "Prof. (Dr.) Chatiiranjan Sinha", role: "Program Chair, RDAMSE 2025 | Secretary, Indian Photobiology Society | Professor, Dept. of Chemistry, Jadavpur University" },
     { name: "Dr. Amrut Ranjan Jena", role: "HOD CSE, DSCSITSC" },
     { name: "Dr. Anitava Halder", role: "HOD, CSE-AIML, DSCSITSC" },
     { name: "Dr. Sayantan Chakraborty", role: "HOD EE, DSCSITSC" },
@@ -142,32 +138,43 @@ const Committee = () => {
               </div>
             </div>
 
-            {/* Convenors & Joint Convenors */}
+            {/* Program Chair, Convenor & Jt. Co-Convenor */}
             <div className="lg:col-span-1">
+              {/* Program Chair */}
               <h3 className="text-xl font-black text-gray-900 mb-6 flex items-center gap-3">
                 <span className="w-2 h-6 bg-[#059669] rounded-full" />
-                CONVENORS
+                PROGRAM CHAIR
               </h3>
-              <div className="space-y-4">
-                {organizingCommittee.convenors.map((c, idx) => (
-                  <div key={idx} className="p-6 bg-white rounded-2xl border border-gray-100 shadow-lg">
-                    <h4 className="font-black text-gray-900">{c.name}</h4>
-                    <p className="text-sm text-gray-500">{c.role}</p>
-                  </div>
-                ))}
+              <div className="space-y-4 mb-10">
+                <div className="p-6 bg-[#059669] rounded-2xl shadow-lg shadow-emerald-200/30">
+                  <p className="text-[10px] font-black text-emerald-200 uppercase tracking-widest mb-2">Program Chair</p>
+                  <h4 className="font-black text-white text-lg leading-tight">{organizingCommittee.programChair.name}</h4>
+                  <p className="text-sm text-emerald-200 mt-1">{organizingCommittee.programChair.role}</p>
+                </div>
               </div>
 
-              <h3 className="text-xl font-black text-gray-900 mt-10 mb-6 flex items-center gap-3">
+              {/* Convenor */}
+              <h3 className="text-xl font-black text-gray-900 mb-6 flex items-center gap-3">
                 <span className="w-2 h-6 bg-[#b8f29d] rounded-full" />
-                JT. CONVENORS
+                CONVENOR
+              </h3>
+              <div className="space-y-4 mb-10">
+                <div className="p-6 bg-white rounded-2xl border border-gray-100 shadow-lg">
+                  <h4 className="font-black text-gray-900">{organizingCommittee.convenor.name}</h4>
+                  <p className="text-sm text-gray-500">{organizingCommittee.convenor.role}</p>
+                </div>
+              </div>
+
+              {/* Jt. Co-Convenor */}
+              <h3 className="text-xl font-black text-gray-900 mb-6 flex items-center gap-3">
+                <span className="w-2 h-6 bg-black rounded-full" />
+                JT. CO-CONVENOR
               </h3>
               <div className="space-y-4">
-                {organizingCommittee.jtConvenors.map((c, idx) => (
-                  <div key={idx} className="p-6 bg-white rounded-2xl border border-gray-100 shadow-lg">
-                    <h4 className="font-black text-gray-900">{c.name}</h4>
-                    <p className="text-sm text-gray-500">{c.role}</p>
-                  </div>
-                ))}
+                <div className="p-6 bg-white rounded-2xl border border-gray-100 shadow-lg">
+                  <h4 className="font-black text-gray-900">{organizingCommittee.jtCoConvenor.name}</h4>
+                  <p className="text-sm text-gray-500">{organizingCommittee.jtCoConvenor.role}</p>
+                </div>
               </div>
             </div>
 
@@ -200,10 +207,9 @@ const Committee = () => {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {advisoryCommittee.map((adv, idx) => (
-              <div key={idx} className={`p-8 rounded-3xl border transition-all ${idx === 0 ? "bg-gray-900 border-gray-900 text-white lg:col-span-2" : "bg-white border-gray-100 text-gray-900 shadow-xl"}`}>
-                {idx === 0 && <p className="text-[#b8f29d] font-black text-xs uppercase mb-4 tracking-widest">Principal</p>}
+              <div key={idx} className="p-8 rounded-3xl border bg-white border-gray-100 text-gray-900 shadow-xl hover:border-[#b8f29d] transition-all duration-300">
                 <h4 className="text-xl font-black mb-2">{adv.name}</h4>
-                <p className={`font-medium ${idx === 0 ? "text-gray-400" : "text-gray-500"}`}>{adv.role}</p>
+                <p className="font-medium text-gray-500">{adv.role}</p>
               </div>
             ))}
           </div>
