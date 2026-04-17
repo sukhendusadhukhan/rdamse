@@ -25,6 +25,7 @@ const Nav = () => {
 
   const currentNav = navItems.find((item) => item.path === location.pathname) || navItems[0];
   const activeTab = currentNav.name;
+  const isHome = location.pathname === '/';
 
   // GSAP Entrance Animation for the Navbar
   useEffect(() => {
@@ -87,7 +88,11 @@ const Nav = () => {
       className="fixed top-4 md:top-8 left-1/2 -translate-x-1/2 z-50 w-[90%] max-w-6xl opacity-0"
     >
       {/* Main Navbar Container */}
-      <nav className="bg-white rounded-full shadow-[0px_10px_30px_rgba(0,0,0,0.08)] p-2 flex items-center justify-between relative">
+      <nav className={`rounded-full p-2 flex items-center justify-between relative transition-all duration-300 ${
+        isHome
+          ? 'bg-black/30 backdrop-blur-md border border-white/20 shadow-[0px_10px_40px_rgba(0,0,0,0.35)]'
+          : 'bg-white border border-gray-200 shadow-[0px_10px_30px_rgba(0,0,0,0.10)]'
+      }`}>
         
         {/* Desktop Navigation */}
         <div className="hidden lg:flex items-center justify-between w-full relative">
@@ -95,7 +100,11 @@ const Nav = () => {
           {/* Animated Background Pill */}
           <div
             ref={activeBgRef}
-            className="absolute h-full bg-[#b8f29d] rounded-full pointer-events-none"
+            className={`absolute h-full rounded-full pointer-events-none ${
+              isHome
+                ? 'bg-[#4ade80]/40 border border-[#4ade80]/50'
+                : 'bg-[#b8f29d] border border-[#059669]/30'
+            }`}
             style={{ top: 0, left: 0, opacity: 0 }}
           />
 
@@ -106,15 +115,19 @@ const Nav = () => {
                 key={item.name}
                 ref={(el) => (buttonRefs.current[index] = el)}
                 onClick={() => navigate(item.path)}
-                className={`relative px-4 xl:px-6 py-2.5 rounded-full text-[14px] font-semibold transition-colors duration-300 flex items-center gap-2 z-10 cursor-pointer
-                  ${isActive ? 'text-black' : 'text-gray-700 hover:text-black hover:bg-gray-100'}
-                `}
+                className={`relative px-4 xl:px-6 py-2.5 rounded-full text-[14px] font-semibold transition-colors duration-300 flex items-center gap-2 z-10 cursor-pointer ${
+                  isHome
+                    ? isActive ? 'text-white font-bold' : 'text-white/80 hover:text-white hover:bg-white/10'
+                    : isActive ? 'text-black font-bold' : 'text-gray-700 hover:text-black hover:bg-gray-100'
+                }`}
               >
                 {item.name}
                 {item.badge && (
-                  <span className={`flex items-center justify-center w-[22px] h-[22px] rounded-full text-[11px] font-extrabold pb-[1px] transition-colors duration-300
-                    ${isActive ? 'bg-black text-white' : 'bg-gray-200 text-gray-800'}
-                  `}>
+                  <span className={`flex items-center justify-center w-[22px] h-[22px] rounded-full text-[11px] font-extrabold pb-[1px] transition-colors duration-300 ${
+                    isHome
+                      ? isActive ? 'bg-[#4ade80] text-black' : 'bg-white/20 text-white'
+                      : isActive ? 'bg-black text-white' : 'bg-gray-200 text-gray-800'
+                  }`}>
                     {item.badge}
                   </span>
                 )}
@@ -125,12 +138,16 @@ const Nav = () => {
 
         {/* Mobile Navbar Header */}
         <div className="lg:hidden flex items-center justify-between w-full px-4 py-2">
-            <span className="text-lg font-bold text-gray-900 px-2 py-1">
+            <span className={`text-lg font-bold px-2 py-1 ${isHome ? 'text-white' : 'text-gray-900'}`}>
               {activeTab}
             </span>
             <button 
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="p-3 bg-black text-white rounded-full hover:bg-gray-800 transition-colors focus:outline-none cursor-pointer"
+              className={`p-3 rounded-full transition-colors focus:outline-none cursor-pointer ${
+                isHome
+                  ? 'bg-white/20 text-white border border-white/30 hover:bg-white/30'
+                  : 'bg-black text-white hover:bg-gray-800'
+              }`}
               aria-label="Toggle Menu"
             >
               <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
@@ -147,7 +164,11 @@ const Nav = () => {
       {/* Mobile Dropdown Menu */}
       <div 
         ref={mobileMenuRef} 
-        className="lg:hidden absolute top-[110%] left-0 right-0 bg-white rounded-3xl shadow-xl overflow-hidden hidden"
+        className={`lg:hidden absolute top-[110%] left-0 right-0 rounded-3xl shadow-xl overflow-hidden hidden ${
+          isHome
+            ? 'bg-black/40 backdrop-blur-md border border-white/20'
+            : 'bg-white border border-gray-200'
+        }`}
         style={{ height: 0, opacity: 0 }}
       >
         <div className="p-3 flex flex-col gap-1.5">
@@ -160,16 +181,18 @@ const Nav = () => {
                   navigate(item.path);
                   setIsMobileMenuOpen(false);
                 }}
-                className={`px-5 py-4 rounded-2xl text-base font-bold transition-colors flex items-center justify-between cursor-pointer
-                  ${isActive ? 'bg-[#b8f29d] text-black' : 'text-gray-900 hover:bg-gray-50'}
-                `}
+                className={`px-5 py-4 rounded-2xl text-base font-bold transition-colors flex items-center justify-between cursor-pointer ${
+                  isHome
+                    ? isActive ? 'bg-[#4ade80]/40 text-white border border-[#4ade80]/50' : 'text-white/80 hover:bg-white/10 hover:text-white'
+                    : isActive ? 'bg-[#b8f29d] text-black' : 'text-gray-900 hover:bg-gray-50'
+                }`}
               >
                 <div className="flex items-center gap-3">
                   {item.name}
                 </div>
                 {item.badge && (
                   <span className={`flex items-center justify-center w-6 h-6 rounded-full text-[12px] font-extrabold
-                    ${isActive ? 'bg-black text-white' : 'bg-gray-200 text-gray-800'}
+                    ${isActive ? 'bg-[#4ade80] text-black' : 'bg-white/20 text-white'}
                   `}>
                     {item.badge}
                   </span>

@@ -277,9 +277,9 @@ const Callforpaper = () => {
             </h3>
             <div className="space-y-4">
               {[
-                { label: "Abstract Submission", date: "15 April 2026", sub: "Deadline" },
-                { label: "Acceptance", date: "20 April 2026", sub: "Notification" },
-                { label: "Early Bird", date: "27 April 2026", sub: "Within 7 days of acceptance" },
+                { label: "Abstract Submission", date: "27 April 2026", sub: "Deadline" },
+                { label: "Acceptance", date: "29 April 2026", sub: "Notification" },
+                { label: "Early Bird", date: "30 April 2026", sub: "Within 7 days of acceptance" },
                 { label: "Conference", date: "7–8 May 2026", sub: "Dates", highlight: true },
               ].map((item, idx) => (
                 <div key={idx} className={`p-4 rounded-2xl border transition-all duration-300 ${item.highlight ? 'bg-[#059669] border-[#059669] text-white shadow-lg shadow-emerald-200/20' : 'bg-[#fafafa] border-gray-100 hover:border-[#b8f29d]'}`}>
