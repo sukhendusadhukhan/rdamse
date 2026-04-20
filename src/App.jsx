@@ -10,10 +10,12 @@ import Ragistration from "./pages/Ragistration";
 import Commite from "./pages/Commite";
 import Vanue from "./pages/Vanue";
 import Footer from "./pages/Footer";
+import ScrollToTop from "./components/ScrollToTop";
 
 const App = () => {
   return (
     <div className="bg-[#fafafa] min-h-screen">
+      <ScrollToTop />
       <Nav />
       <Routes>
         <Route path="/" element={<Home />} />

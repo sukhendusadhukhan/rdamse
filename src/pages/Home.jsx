@@ -187,17 +187,52 @@ const Home = () => {
             <div className="mx-auto w-24 h-1.5 bg-gradient-to-r from-[#4ade80] to-[#059669] rounded-full" />
           </div>
 
-          {/* Organization Info in a professional grid */}
-          <div ref={associationRef} className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full max-w-5xl mb-12">
-            <div className="p-6 rounded-2xl bg-black/30 backdrop-blur-md border border-white/20 shadow-xl transition-all hover:border-[#4ade80]/50 hover:bg-black/40">
-              <span className="text-xs font-black uppercase tracking-[0.2em] text-[#4ade80]/80 mb-3 block">In Association With</span>
-              <p className="text-lg font-bold text-white" style={{textShadow: '0 1px 8px rgba(0,0,0,0.6)'}}>Indian Photobiology Society</p>
-              <p className="text-sm text-white/70">Jadavpur University, Kolkata</p>
+          {/* Organization Info in a professional layout */}
+          <div ref={associationRef} className="flex flex-col gap-6 w-full max-w-5xl mb-12">
+            {/* Top Row: Principal Organizer */}
+            <div className="w-full">
+              <div className="group p-8 md:p-10 rounded-3xl bg-black/40 backdrop-blur-xl border border-white/10 shadow-2xl transition-all duration-500 hover:border-[#4ade80]/50 hover:bg-black/60 hover:-translate-y-1">
+                <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
+                  <div className="flex items-center gap-4">
+                    <div className="w-12 h-12 rounded-full bg-[#4ade80]/20 flex items-center justify-center shrink-0">
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-7 w-7 text-[#4ade80]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                      </svg>
+                    </div>
+                    <div>
+                      <span className="text-xs font-black uppercase tracking-[0.3em] text-[#4ade80] mb-1 block">Organized By</span>
+                      <p className="text-2xl md:text-3xl font-bold text-white leading-tight group-hover:text-[#4ade80] transition-colors">Department of Basic Science & Humanities</p>
+                    </div>
+                  </div>
+                  <div className="md:text-right">
+                    <p className="text-sm md:text-base text-white/60 font-medium">Dr. Sudhir Chandra Sur Institute of Technology and Sports Complex</p>
+                    <div className="w-12 h-1 bg-[#4ade80]/30 rounded-full mt-3 md:ml-auto transition-all duration-500 group-hover:w-full group-hover:bg-[#4ade80]/50" />
+                  </div>
+                </div>
+              </div>
             </div>
-            <div className="p-6 rounded-2xl bg-black/30 backdrop-blur-md border border-white/20 shadow-xl transition-all hover:border-[#059669]/50 hover:bg-black/40">
-              <span className="text-xs font-black uppercase tracking-[0.2em] text-[#4ade80]/80 mb-3 block">Organized By</span>
-              <p className="text-lg font-bold text-[#4ade80]" style={{textShadow: '0 1px 8px rgba(0,0,0,0.6)'}}>Department of Basic Science & Humanities</p>
-              <p className="text-sm text-white/70">Dr. Sudhir Chandra Sur Institute of Technology and Sports Complex</p>
+
+            {/* Bottom Row: Collaborative Partners */}
+            <div className="p-8 rounded-3xl bg-black/40 backdrop-blur-xl border border-white/10 shadow-2xl w-full hover:border-[#4ade80]/30 transition-all duration-500">
+              <div className="flex flex-col items-center mb-8">
+                <span className="text-xs font-black uppercase tracking-[0.4em] text-[#4ade80] mb-4">In Association With</span>
+                <div className="w-24 h-1 bg-gradient-to-r from-transparent via-[#4ade80]/50 to-transparent rounded-full" />
+              </div>
+              
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                {[
+                  { name: "Society for Materials Chemistry", sub: "Kolkata Chapter" },
+                  { name: "Indian Photobiology Society", sub: "JU, Kolkata" },
+                  { name: "Subhami Biopharma Pvt Ltd", sub: "Kolkata" },
+                  { name: "Sripat Singh College", sub: "Murshidabad" }
+                ].map((item, idx) => (
+                  <div key={idx} className="group relative p-5 rounded-2xl bg-white/5 border border-white/5 hover:bg-[#4ade80]/5 hover:border-[#4ade80]/20 transition-all duration-500 text-center flex flex-col justify-center items-center overflow-hidden">
+                    <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[#4ade80]/0 to-transparent group-hover:via-[#4ade80]/50 transition-all duration-700" />
+                    <p className="text-[15px] font-bold text-white leading-snug mb-2 group-hover:text-[#4ade80] transition-colors duration-300">{item.name}</p>
+                    <p className="text-[10px] text-white/40 uppercase tracking-[0.15em] font-semibold group-hover:text-white/60 transition-colors">{item.sub}</p>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
 

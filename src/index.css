@@ -24,3 +24,41 @@
     }
   }
 }
+
+.mirror-shine {
+  position: relative;
+  overflow: hidden;
+}
+
+.mirror-shine::after {
+  content: '';
+  position: absolute;
+  top: -150%;
+  left: -150%;
+  width: 300%;
+  height: 300%;
+  background: linear-gradient(
+    45deg,
+    transparent,
+    rgba(255, 255, 255, 0.2) 45%,
+    rgba(255, 255, 255, 0.6) 50%,
+    rgba(255, 255, 255, 0.2) 55%,
+    transparent
+  );
+  transform: rotate(-45deg);
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.group:hover .mirror-shine::after {
+  left: 100%;
+  top: 100%;
+  opacity: 1;
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}

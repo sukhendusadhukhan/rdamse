@@ -97,44 +97,64 @@ const Nav = () => {
         
         {/* Desktop Navigation */}
         <div className="hidden lg:flex items-center justify-between w-full relative">
-          
-          {/* Animated Background Pill */}
-          <div
-            ref={activeBgRef}
-            className={`absolute h-full rounded-full pointer-events-none ${
-              isHome
-                ? 'bg-[#4ade80]/40 border border-[#4ade80]/50'
-                : 'bg-[#b8f29d] border border-[#059669]/30'
-            }`}
-            style={{ top: 0, left: 0, opacity: 0 }}
-          />
+          <div className="flex items-center relative">
+            {/* Animated Background Pill */}
+            <div
+              ref={activeBgRef}
+              className={`absolute h-full rounded-full pointer-events-none ${
+                isHome
+                  ? 'bg-[#4ade80]/40 border border-[#4ade80]/50'
+                  : 'bg-[#b8f29d] border border-[#059669]/30'
+              }`}
+              style={{ top: 0, left: 0, opacity: 0 }}
+            />
 
-          {navItems.map((item, index) => {
-            const isActive = activeTab === item.name;
-            return (
-              <button
-                key={item.name}
-                ref={(el) => (buttonRefs.current[index] = el)}
-                onClick={() => navigate(item.path)}
-                className={`relative px-4 xl:px-6 py-2.5 rounded-full text-[14px] font-semibold transition-colors duration-300 flex items-center gap-2 z-10 cursor-pointer ${
-                  isHome
-                    ? isActive ? 'text-white font-bold' : 'text-white/80 hover:text-white hover:bg-white/10'
-                    : isActive ? 'text-black font-bold' : 'text-gray-700 hover:text-black hover:bg-gray-100'
-                }`}
-              >
-                {item.name === 'Home' ? <img src={rdamselogo} alt="Home" className="h-6 object-contain" /> : item.name}
-                {item.badge && (
-                  <span className={`flex items-center justify-center w-[22px] h-[22px] rounded-full text-[11px] font-extrabold pb-[1px] transition-colors duration-300 ${
+            {navItems.map((item, index) => {
+              const isActive = activeTab === item.name;
+              return (
+                <button
+                  key={item.name}
+                  ref={(el) => (buttonRefs.current[index] = el)}
+                  onClick={() => navigate(item.path)}
+                  className={`relative px-4 xl:px-6 py-2.5 rounded-full text-[14px] font-semibold transition-colors duration-300 flex items-center gap-2 z-10 cursor-pointer ${
+                    item.name === 'Home' ? 'mr-4 md:mr-6' : ''
+                  } ${
                     isHome
-                      ? isActive ? 'bg-[#4ade80] text-black' : 'bg-white/20 text-white'
-                      : isActive ? 'bg-black text-white' : 'bg-gray-200 text-gray-800'
-                  }`}>
-                    {item.badge}
-                  </span>
-                )}
-              </button>
-            );
-          })}
+                      ? isActive ? 'text-white font-bold' : 'text-white/80 hover:text-white hover:bg-white/10'
+                      : isActive ? 'text-black font-bold' : 'text-gray-700 hover:text-black hover:bg-gray-100'
+                  }`}
+                >
+                  {item.name === 'Home' ? <img src={rdamselogo} alt="Home" className="h-6 object-contain" /> : item.name}
+                  {item.badge && (
+                    <span className={`flex items-center justify-center w-[22px] h-[22px] rounded-full text-[11px] font-extrabold pb-[1px] transition-colors duration-300 ${
+                      isHome
+                        ? isActive ? 'bg-[#4ade80] text-black' : 'bg-white/20 text-white'
+                        : isActive ? 'bg-black text-white' : 'bg-gray-200 text-gray-800'
+                    }`}>
+                      {item.badge}
+                    </span>
+                  )}
+                </button>
+              );
+            })}
+          </div>
+
+          {/* Register Now Button (Desktop) */}
+          <a
+            href="https://docs.google.com/forms/d/e/1FAIpQLSe4H1C30c-7QTIqLL1JaZKMSgCNBak-tdk-l724HMWm-r4xrw/viewform?usp=send_form"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={`ml-4 px-6 py-2.5 rounded-full text-[14px] font-black transition-all duration-300 hover:scale-105 active:scale-95 shadow-lg flex items-center gap-2 ${
+              isHome
+                ? 'bg-[#4ade80] text-black hover:bg-[#b8f29d] shadow-[#4ade80]/20'
+                : 'bg-black text-white hover:bg-neutral-800 shadow-black/10'
+            }`}
+          >
+            Register Now
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+            </svg>
+          </a>
         </div>
 
         {/* Mobile Navbar Header */}
@@ -142,23 +162,35 @@ const Nav = () => {
             <span className={`text-lg font-bold px-2 py-1 ${isHome ? 'text-white' : 'text-gray-900'}`}>
               {activeTab === 'Home' ? <img src={rdamselogo} alt="Home" className="h-8 object-contain" /> : activeTab}
             </span>
-            <button 
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className={`p-3 rounded-full transition-colors focus:outline-none cursor-pointer ${
-                isHome
-                  ? 'bg-white/20 text-white border border-white/30 hover:bg-white/30'
-                  : 'bg-black text-white hover:bg-gray-800'
-              }`}
-              aria-label="Toggle Menu"
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-                {isMobileMenuOpen ? (
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-                ) : (
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16m-7 6h7" />
-                )}
-              </svg>
-            </button>
+            <div className="flex items-center gap-2">
+              <a
+                href="https://docs.google.com/forms/d/e/1FAIpQLSe4H1C30c-7QTIqLL1JaZKMSgCNBak-tdk-l724HMWm-r4xrw/viewform?usp=send_form"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`px-4 py-2 rounded-full text-[12px] font-bold ${
+                  isHome ? 'bg-[#4ade80] text-black shadow-lg shadow-[#4ade80]/20' : 'bg-black text-white'
+                }`}
+              >
+                Register
+              </a>
+              <button 
+                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                className={`p-3 rounded-full transition-colors focus:outline-none cursor-pointer ${
+                  isHome
+                    ? 'bg-white/20 text-white border border-white/30 hover:bg-white/30'
+                    : 'bg-black text-white hover:bg-gray-800'
+                }`}
+                aria-label="Toggle Menu"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                  {isMobileMenuOpen ? (
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                  ) : (
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16m-7 6h7" />
+                  )}
+                </svg>
+              </button>
+            </div>
         </div>
       </nav>
 
@@ -201,6 +233,18 @@ const Nav = () => {
               </button>
             )
           })}
+
+          {/* Mobile CTA */}
+          <div className="p-2 pt-4">
+            <a
+              href="https://docs.google.com/forms/d/e/1FAIpQLSe4H1C30c-7QTIqLL1JaZKMSgCNBak-tdk-l724HMWm-r4xrw/viewform?usp=send_form"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full py-4 rounded-2xl bg-[#4ade80] text-black font-black text-center block shadow-lg shadow-[#4ade80]/20 active:scale-95 transition-transform"
+            >
+              Register Now
+            </a>
+          </div>
         </div>
       </div>
     </header>
