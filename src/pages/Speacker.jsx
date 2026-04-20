@@ -10,7 +10,7 @@ import cc from "../assets/cc.webp"
 import nrb from "../assets/nrb.jpg"
 import san from "../assets/san.jpg"
 import dd from "../assets/dd.jpg"
-import dj from "../assets/dj.jpg"
+import ddj from "../assets/ddj.jpeg"
 import mm from "../assets/mm.jpg"
 import jm from "../assets/jm.jpg"
 import sj from "../assets/sj.jpg"
@@ -71,11 +71,11 @@ const speakers = [
     image: dong
   },
   { 
-    name: "Prof. F-C Chuang", 
+    name: "Prof. Miki Hasegawa", 
     role: "Keynote Speaker", 
-    org: "National Sun Yat-sen University, Taiwan",
-    link: "https://scholar.google.com/citations?user=O_iiqgwAAAAJ&hl=en",
-    image: cit
+    org: "Aoyama Gakuin University, Japan",
+    link: "https://researchmap.jp/read0044670?lang=en",
+    image: null // Placeholder
   },
   { 
     name: "Prof. A. K. Ray", 
@@ -134,11 +134,32 @@ const speakers = [
     image: dd
   },
   { 
+    name: "Dr. S. Ghosh", 
+    role: "Invited Speaker", 
+    org: "Principal Scientist, CSIR-CGCRI, Kolkata",
+    link: "https://www.cgcri.res.in/research/research-divisions/sensor-actuator-division/dr-srabanti-ghosh/",
+    image: null // Placeholder
+  },
+  { 
     name: "Prof. D. Jana", 
     role: "Invited Speaker", 
     org: "University of Calcutta",
     link: "http://independent.academia.edu/DebasishJana",
-    image: dj
+    image: ddj
+  },
+  { 
+    name: "Dr. J. Mukhopadhyay", 
+    role: "Invited Speaker", 
+    org: "CSIR-CGCRI, Kolkata",
+    link: "https://www.cgcri.res.in/research/research-divisions/energy-materials-devices/dr-jayanta-mukhopadhyay/",
+    image: jm
+  },
+  { 
+    name: "Prof. Debashis De", 
+    role: "Invited Speaker", 
+    org: "MAKAUT, Kolkata",
+    link: "https://scholar.google.co.in/citations?user=vPj7n0QAAAAJ&hl=en",
+    image: null // Placeholder
   },
   { 
     name: "Prof. M. Mondal", 
@@ -148,11 +169,11 @@ const speakers = [
     image: mm
   },
   { 
-    name: "Dr. J. Mukhopadhyay", 
+    name: "Dr. M. Samanta", 
     role: "Invited Speaker", 
-    org: "CSIR-CGCRI, Kolkata",
-    link: "https://www.cgcri.res.in/research/research-divisions/energy-materials-devices/dr-jayanta-mukhopadhyay/",
-    image: jm
+    org: "Scientist, DRDO, Kolkata",
+    link: "https://www.researchgate.net/profile/Moumita-Samanta",
+    image: null // Placeholder
   },
   { 
     name: "Dr. A. Ghosal", 
@@ -173,7 +194,7 @@ const SpeakerCard = ({ speaker }) => (
       <div className="relative mb-6">
         <div className="w-32 h-32 rounded-[2rem] bg-slate-100 p-1 mirror-shine overflow-hidden shadow-inner group-hover:rotate-3 transition-transform duration-500">
           <img 
-            src={speaker.image}
+            src={speaker.image || `https://ui-avatars.com/api/?name=${encodeURIComponent(speaker.name)}&background=f1f5f9&color=64748b&bold=true&size=200`}
             alt={speaker.name}
             className="w-full h-full object-cover rounded-[1.75rem] grayscale-[30%] group-hover:grayscale-0 transition-all duration-500"
             onError={(e) => {
@@ -278,6 +299,19 @@ const Speacker = () => {
             ))}
           </div>
         </div>
+
+        {/* Section: Women Excellence in Materials Science */}
+        {/* <div>
+          <div className="flex items-center gap-4 mb-10 mt-24">
+            <h2 className="text-2xl font-bold text-slate-800 whitespace-nowrap">Women Excellence in Materials Science</h2>
+            <div className="h-[1px] w-full bg-gradient-to-r from-slate-200 to-transparent" />
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            {speakers.filter(s => ["Prof. Miki Hasegawa", "Dr. S. Ghosh", "Dr. M. Samanta"].includes(s.name)).map((s, idx) => (
+              <SpeakerCard key={idx} speaker={s} />
+            ))}
+          </div>
+        </div> */}
 
         {/* CTA Section */}
         <section className="mt-32 relative group">

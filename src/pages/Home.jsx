@@ -7,6 +7,11 @@ import ConferenceInfo from "./ConferenceInfo";
 import { Link } from "react-router-dom";
 import rdamselogo from "../assets/rdamselogo.png";
 import Surtechlogo from "../assets/SurTechlogo.png"
+import smcLogo from "../assets/SMC.webp";
+import ipsLogo from "../assets/IPS.jpg";
+import sriLogo from "../assets/SRI.jpg";
+import sripatLogo from "../assets/sripat.jpg";
+
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -221,17 +226,29 @@ const Home = () => {
               
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                 {[
-                  { name: "Society for Materials Chemistry", sub: "Kolkata Chapter" },
-                  { name: "Indian Photobiology Society", sub: "JU, Kolkata" },
-                  { name: "Subhami Biopharma Pvt Ltd", sub: "Kolkata" },
-                  { name: "Sripat Singh College", sub: "Murshidabad" }
+                  { name: "Society for Materials Chemistry", sub: "Kolkata Chapter", logo: smcLogo },
+                  { name: "Indian Photobiology Society", sub: "JU, Kolkata", logo: ipsLogo },
+                  { name: "Subhami Biopharma Pvt Ltd", sub: "Kolkata", logo: sriLogo },
+                  { name: "Sripat Singh College", sub: "Murshidabad", logo: sripatLogo }
                 ].map((item, idx) => (
-                  <div key={idx} className="group relative p-5 rounded-2xl bg-white/5 border border-white/5 hover:bg-[#4ade80]/5 hover:border-[#4ade80]/20 transition-all duration-500 text-center flex flex-col justify-center items-center overflow-hidden">
+                  <div key={idx} className="group relative p-6 rounded-2xl bg-white/5 border border-white/5 hover:bg-[#4ade80]/5 hover:border-[#4ade80]/20 transition-all duration-500 text-center flex flex-col justify-center items-center overflow-hidden min-h-[180px]">
                     <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[#4ade80]/0 to-transparent group-hover:via-[#4ade80]/50 transition-all duration-700" />
+                    
+                    {/* Logo Container */}
+                    <div className="mb-4 relative w-20 h-20 flex items-center justify-center">
+                      <div className="absolute inset-0 bg-white/10 rounded-xl blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                      <img 
+                        src={item.logo} 
+                        alt={`${item.name} Logo`} 
+                        className="w-full h-full object-contain relative z-10 filter drop-shadow-md group-hover:scale-110 transition-transform duration-500"
+                      />
+                    </div>
+
                     <p className="text-[15px] font-bold text-white leading-snug mb-2 group-hover:text-[#4ade80] transition-colors duration-300">{item.name}</p>
                     <p className="text-[10px] text-white/40 uppercase tracking-[0.15em] font-semibold group-hover:text-white/60 transition-colors">{item.sub}</p>
                   </div>
                 ))}
+
               </div>
             </div>
           </div>

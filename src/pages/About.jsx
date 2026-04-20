@@ -1,20 +1,36 @@
 import React, { useEffect, useRef } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 import clgImg from "../assets/clg.jpg";
-import flyerImg from "../assets/flyer.jpeg";
+import flyerImg from "../assets/poster.jpg";
 import rdamselogo from "../assets/rdamselogo.png";
 import Surtechlogo from "../assets/SurTechlogo.png";
 import ConferenceInfo from "./ConferenceInfo";
 
-// Event Gallery Images
 import event1 from "../assets/event1.jpeg";
 import event2 from "../assets/event2.jpeg";
 import event3 from "../assets/event3.jpeg";
 import event4 from "../assets/event4.jpeg";
 import event5 from "../assets/event5.jpeg";
+
+// Speaker Images
+// import joe from "../assets/joe.jpg";
+// import dong from "../assets/dong.jpg";
+// import cit from "../assets/citations.jpg";
+// import ajoy from "../assets/ajoy.jpg";
+// import ak from "../assets/ak.jpg";
+// import rkb from "../assets/rkb.jpg";
+// import kk from "../assets/kk.jpg";
+// import cc from "../assets/cc.webp";
+// import nrb from "../assets/nrb.jpg";
+// import san from "../assets/san.jpg";
+// import dd from "../assets/dd.jpg";
+// import ddj from "../assets/ddj.jpeg";
+// import mm from "../assets/mm.jpg";
+// import jm from "../assets/jm.jpg";
+// import sj from "../assets/sj.jpg";
 
 const SurTechLogo = () => (
   <img src={Surtechlogo} alt="SurTech Logo" className="h-10 md:h-14 w-auto object-contain" />
@@ -22,35 +38,35 @@ const SurTechLogo = () => (
 
 const eventMoments = [
   {
-    title: "Inaugural Ceremony",
-    tag: "RDAMSE 2024",
+    title: "Glimpse of RDAMSE 2025...",
+    tag: "RDAMSE 2025",
     img: event1,
     accent: "#059669",
     description: "Launch of the 1st edition bringing together global visionaries in Material Science."
   },
   {
-    title: "Technical Sessions",
+    title: "Glimpse of RDAMSE 2025...",
     tag: "Knowledge Sharing",
     img: event2,
     accent: "#b8f29d",
     description: "Deep-dives into advanced manufacturing and sustainable engineering applications."
   },
   {
-    title: "International Keynotes",
+    title: "Glimpse of RDAMSE 2025...",
     tag: "Global Perspectives",
     img: event3,
     accent: "#059669",
     description: "World-renowned speakers sharing insights on the future of nanotechnology."
   },
   {
-    title: "Panel Discussions",
+    title: "Glimpse of RDAMSE 2025...",
     tag: "Industry Connect",
     img: event4,
     accent: "#b8f29d",
     description: "Bridging the gap between academic research and industrial implementation."
   },
   {
-    title: "Award Ceremony",
+    title: "Glimpse of RDAMSE 2025...",
     tag: "Excellence",
     img: event5,
     accent: "#059669",
@@ -58,10 +74,29 @@ const eventMoments = [
   }
 ];
 
+// const featuredSpeakers = [
+//   { name: "Prof. Joe OTSUKI", org: "Nihon University, Japan", image: joe },
+//   { name: "Prof. Don Seo", org: "Arizona State University, USA", image: dong },
+//   { name: "Prof. F-C Chuang", org: "National Sun Yat-sen University, Taiwan", image: cit },
+//   { name: "Prof. A. K. Ray", org: "Director, JISASR", image: ajoy },
+//   { name: "Prof. A. K. Panda", org: "VC, Rani Rashmoni Green University", image: ak },
+//   { name: "Prof. R. Banerjee", org: "IISER, Kolkata", image: rkb },
+//   { name: "Prof. K. K. Chattopadhyay", org: "Jadavpur University, Kolkata", image: kk },
+//   { name: "Prof. C. Sinha", org: "Jadavpur University, Kolkata", image: cc },
+//   { name: "Prof. N. R. Bandyopadhyay", org: "IIEST, Kolkata", image: nrb },
+//   { name: "Prof. S. Mahapatra", org: "IISc, Bangalore", image: san },
+//   { name: "Prof. D. Dhara", org: "IIT Kharagpur", image: dd },
+//   { name: "Prof. D. Jana", org: "University of Calcutta", image: ddj },
+//   { name: "Prof. M. Mondal", org: "IACS, Kolkata", image: mm },
+//   { name: "Dr. J. Mukhopadhyay", org: "CSIR-CGCRI, Kolkata", image: jm },
+//   { name: "Dr. A. Ghosal", org: "Exide Industries", image: sj },
+// ];
+
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
 const About = () => {
   const location = useLocation();
+  // const navigate = useNavigate();
   const isAboutPage = location.pathname === "/about";
   const containerRef = useRef(null);
   const imageRef = useRef(null);
@@ -302,6 +337,69 @@ const About = () => {
           <div className="h-12" />
         </div>
       </section>
+
+      {/* ===================== EMINENT SPEAKERS LIST SECTION ===================== */}
+      {/* <section className="py-20 px-4 sm:px-6 lg:px-8 bg-[#fafafa]">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center gap-3 mb-4">
+              <span className="w-8 h-1 bg-[#059669] rounded-full" />
+              <span className="text-xs font-black uppercase tracking-[0.3em] text-[#059669]">
+                Who's Who
+              </span>
+              <span className="w-8 h-1 bg-[#059669] rounded-full" />
+            </div>
+            <h2 className="text-4xl md:text-5xl font-black text-gray-900 mb-6">
+              Eminent <span className="text-[#059669]">Speakers</span>
+            </h2>
+            <p className="max-w-2xl mx-auto text-gray-500 font-medium">
+              Information extracted from the official flyer highlighting our global research leadership and keynote dignitaries.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
+            {featuredSpeakers.map((speaker, idx) => (
+              <div 
+                key={idx} 
+                className="group p-6 bg-white rounded-3xl border border-gray-100 shadow-sm hover:shadow-xl hover:shadow-[#059669]/5 hover:-translate-y-1 transition-all duration-300"
+              >
+                <div className="flex items-center gap-4">
+                  <div className="w-14 h-14 rounded-2xl overflow-hidden bg-gray-100 flex-shrink-0 border border-gray-100 group-hover:border-[#b8f29d] transition-colors">
+                    <img 
+                      src={speaker.image} 
+                      alt={speaker.name} 
+                      className="w-full h-full object-cover grayscale-[50%] group-hover:grayscale-0 transition-all duration-500"
+                      onError={(e) => {
+                        e.target.src = `https://ui-avatars.com/api/?name=${encodeURIComponent(speaker.name)}&background=f1f5f9&color=64748b&bold=true`;
+                      }}
+                    />
+                  </div>
+                  <div className="flex flex-col min-w-0">
+                    <h4 className="text-sm font-black text-gray-900 group-hover:text-[#059669] transition-colors truncate">
+                      {speaker.name}
+                    </h4>
+                    <p className="text-[10px] text-gray-400 font-bold uppercase tracking-wider truncate">
+                      {speaker.org}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-16 text-center">
+            <button 
+              onClick={() => navigate('/speakers')}
+              className="group inline-flex items-center gap-3 px-8 py-4 bg-white border-2 border-gray-100 rounded-2xl font-black text-sm uppercase tracking-widest text-gray-900 hover:border-[#059669] hover:text-[#059669] transition-all"
+            >
+              Explore Full Gallery
+              <svg className="w-5 h-5 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </section> */}
       {/* =============================================================== */}
 
       {/* About the Institute Section */}

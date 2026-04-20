@@ -116,13 +116,13 @@ const Committee = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {/* Chief Patron Specialized Card */}
-            <div className="lg:col-span-3 bg-white p-10 rounded-[2.5rem] border border-[#b8f29d]/30 shadow-2xl shadow-gray-200 relative overflow-hidden group">
+            <div className="lg:col-span-3  bg-[#059669]  p-10 rounded-[2.5rem] border border-[#b8f29d]/30 shadow-2xl shadow-gray-200 relative overflow-hidden group">
               <div className="absolute top-0 right-0 p-8">
-                <div className="w-12 h-12 rounded-full bg-[#b8f29d]/20 flex items-center justify-center text-[#059669] font-black">CP</div>
+                <div className="w-12 h-12 rounded-full bg-[#b8f29d]/20 flex items-center justify-center text-white font-black">CP</div>
               </div>
-              <p className="text-[#059669] font-black uppercase tracking-widest text-sm mb-4">Chief Patron</p>
-              <h3 className="text-4xl md:text-5xl font-black text-gray-900 mb-2">{organizingCommittee.chiefPatron.name}</h3>
-              <p className="text-xl text-gray-500 font-medium">{organizingCommittee.chiefPatron.role}</p>
+              <p className="text-white font-black uppercase tracking-widest text-sm mb-4">Chief Patron</p>
+              <h3 className="text-4xl md:text-5xl font-black text-white mb-2">{organizingCommittee.chiefPatron.name}</h3>
+              <p className="text-xl text-white font-medium">{organizingCommittee.chiefPatron.role}</p>
             </div>
 
             {/* Patrons Grid */}
