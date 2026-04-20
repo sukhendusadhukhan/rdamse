@@ -298,6 +298,68 @@ const Callforpaper = () => {
         </div>
       </section>
 
+      <section className="relative z-10 py-10 px-6">
+        <div className="max-w-7xl mx-auto">
+          <div className="content-section bg-gradient-to-br from-white to-[#f0f9eb] border border-emerald-100 p-8 md:p-16 rounded-[4rem] shadow-2xl shadow-emerald-700/5 ring-1 ring-black/5 overflow-hidden group">
+            <div className="absolute top-0 right-0 w-64 h-64 bg-[#b8f29d] opacity-[0.1] blur-[80px] -mr-32 -mt-32 rounded-full" />
+            
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+              <div>
+                <span className="inline-block px-4 py-1 mb-6 text-[10px] font-black uppercase tracking-[0.2em] text-[#059669] bg-[#b8f29d]/30 rounded-full border border-[#b8f29d]/50">
+                  Publication Opportunities
+                </span>
+                <h2 className="text-4xl md:text-5xl font-black text-gray-900 mb-8 leading-tight tracking-tight">
+                  Global Visibility for Your <span className="text-[#059669]">Research</span>
+                </h2>
+                <div className="space-y-6">
+                  <div className="flex gap-4 items-start">
+                    <div className="w-12 h-12 rounded-2xl bg-white border border-emerald-50 shadow-sm flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+                      <span className="text-xl">📚</span>
+                    </div>
+                    <div>
+                      <h4 className="text-xl font-black text-gray-900">ISBN Conference Proceedings</h4>
+                      <p className="text-gray-600 font-medium leading-relaxed mt-1">All accepted abstracts will be published in the ISBN Conference Proceedings, ensuring formal record of your presentation.</p>
+                    </div>
+                  </div>
+
+                  <div className="flex gap-4 items-start">
+                    <div className="w-12 h-12 rounded-2xl bg-white border border-emerald-50 shadow-sm flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+                      <span className="text-xl">💎</span>
+                    </div>
+                    <div>
+                      <h4 className="text-xl font-black text-gray-900">Premium Journal Publication</h4>
+                      <p className="text-gray-600 font-medium leading-relaxed mt-1">Selected full papers will be published in reputed journals. These publications will be <span className="text-[#059669] font-black">free of cost</span> for selected papers.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                {[
+                  { name: "ChemistrySelect (Wiley)", info: "SCI indexed", color: "blue" },
+                  { name: "ES General and ESCS", info: "Indexed", color: "emerald" },
+                  { name: "ES Energy & Environment", info: "Scopus indexed", sub: "ES Publisher", color: "orange" },
+                  { name: "ES Materials & Manufacturing", info: "Scopus indexed", sub: "ES Publisher", color: "purple" }
+                ].map((journal, i) => (
+                  <div key={i} className="p-6 rounded-3xl bg-white border border-gray-100 shadow-xl shadow-emerald-800/5 hover:border-[#b8f29d] transition-all group/card">
+                    <div className="flex flex-col h-full">
+                      <div className="flex-grow">
+                        {journal.sub && <p className="text-[10px] font-black uppercase tracking-widest text-[#059669]/60 mb-1">{journal.sub}</p>}
+                        <h5 className="text-base font-black text-gray-900 leading-tight mb-2">{journal.name}</h5>
+                      </div>
+                      <div className="mt-4 flex items-center justify-between">
+                        <span className="text-[11px] font-black uppercase text-[#059669] tracking-wider px-2 py-0.5 bg-[#b8f29d]/20 rounded">{journal.info}</span>
+                        <div className="w-1.5 h-1.5 rounded-full bg-[#059669] animate-pulse" />
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section className="relative z-10 pt-20 pb-10 px-6 text-center">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-4xl md:text-6xl font-black text-gray-900 mb-4 tracking-tight">Proposed Conference Tracks</h2>

@@ -96,6 +96,7 @@ const steps = [
 
 const Submission = () => {
   const pageRef = useRef(null);
+  const ctaRef = useRef(null);
 
   useEffect(() => {
     const refreshTimeout = setTimeout(() => ScrollTrigger.refresh(), 100);
@@ -175,6 +176,20 @@ const Submission = () => {
         opacity: 0,
         duration: 0.9,
         ease: "power2.out",
+        clearProps: "all",
+      });
+
+      // Registration CTA section
+      gsap.from(ctaRef.current, {
+        scrollTrigger: {
+          trigger: ctaRef.current,
+          start: "top 95%",
+          toggleActions: "play none none none",
+        },
+        scale: 0.9,
+        opacity: 0,
+        duration: 1,
+        ease: "back.out(1.7)",
         clearProps: "all",
       });
     }, pageRef);
@@ -405,6 +420,22 @@ const Submission = () => {
                 Journal selection for full paper submission is separate from the abstract submission process. Authors whose abstracts are accepted will receive further instructions on full paper submission and their selected journal's guidelines. APC (Article Processing Charge) applies for open access journals.
               </p>
             </div>
+            <div ref={ctaRef} className="flex flex-wrap items-center justify-center gap-4">
+            <a
+              href="https://docs.google.com/forms/d/e/1FAIpQLSe4H1C30c-7QTIqLL1JaZKMSgCNBak-tdk-l724HMWm-r4xrw/viewform?usp=send_form"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="relative px-10 py-4 bg-black text-white rounded-full text-lg font-bold shadow-[0_0_30px_rgba(0,0,0,0.5)] overflow-hidden transition-all duration-300 hover:scale-105 hover:bg-neutral-900 active:scale-95 group border border-white/10"
+            >
+              <span className="relative z-10 flex items-center gap-3">
+                Register Now
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </span>
+              <div className="absolute inset-0 bg-white/5 translate-y-full transition-transform duration-300 group-hover:translate-y-0" />
+            </a>
+          </div>
           </div>
         </div>
       </section>

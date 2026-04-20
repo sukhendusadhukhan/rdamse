@@ -75,6 +75,56 @@ const Vanue = () => {
           </div>
         </div>
       </div>
+
+      {/* Contact Persons Section */}
+      <div className="max-w-7xl mx-auto mt-24 md:mt-32 relative z-10">
+        <div className="reveal inline-flex items-center gap-3 mb-10">
+          <span className="w-10 md:w-12 h-1.5 bg-[#b8f29d] rounded-full" />
+          <span className="text-xs md:text-sm font-black uppercase tracking-[0.3em] text-[#059669]">For Enquiries Contact</span>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {[
+            {
+              name: "Dr. Dipankar Das",
+              role: "Convener, 2nd RDAMSE 2026 | HoD, BSH Department, SurTech",
+              email: "hod_bsh@dsec.ac.in",
+              phone: "+91-9748313603"
+            },
+            {
+              name: "Dr. Biswajit Das",
+              role: "Co-Convener, 2nd RDAMSE 2026 | Convener, R&D Cell, SurTech",
+              email: "biswajit.das@dsec.ac.in",
+              phone: "+91-9748313603"
+            }
+          ].map((contact, idx) => (
+            <div key={idx} className="reveal p-8 md:p-10 bg-white rounded-[2.5rem] border border-gray-100 shadow-xl shadow-gray-200/40 hover:border-[#b8f29d] transition-all duration-300 group">
+              <div className="flex flex-col h-full">
+                <div className="mb-6">
+                  <h3 className="text-2xl md:text-3xl font-black text-gray-900 mb-2 leading-tight">{contact.name}</h3>
+                  <p className="text-sm md:text-base font-bold text-[#059669] uppercase tracking-wide opacity-80">{contact.role}</p>
+                </div>
+                
+                <div className="space-y-4 mt-auto">
+                  <a href={`mailto:${contact.email}`} className="flex items-center gap-4 text-gray-600 hover:text-[#059669] transition-colors group/item">
+                    <div className="w-10 h-10 rounded-xl bg-gray-50 flex items-center justify-center group-hover/item:bg-[#b8f29d]/20 transition-colors">
+                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
+                    </div>
+                    <span className="font-semibold text-sm md:text-base break-all">{contact.email}</span>
+                  </a>
+                  
+                  <a href={`tel:${contact.phone.replace(/\s+/g, '')}`} className="flex items-center gap-4 text-gray-600 hover:text-[#059669] transition-colors group/item">
+                    <div className="w-10 h-10 rounded-xl bg-gray-50 flex items-center justify-center group-hover/item:bg-[#b8f29d]/20 transition-colors">
+                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
+                    </div>
+                    <span className="font-semibold text-sm md:text-base">{contact.phone}</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
     </div>
   );
 };

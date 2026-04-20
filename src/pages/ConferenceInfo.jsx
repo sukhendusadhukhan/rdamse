@@ -112,7 +112,7 @@ const ConferenceInfo = () => {
   return (
     <section
       ref={containerRef}
-      className="py-24 px-4 sm:px-6 lg:px-8 bg-white relative overflow-hidden"
+      className="pt-8 pb-24 px-4 sm:px-6 lg:px-8 bg-white relative overflow-hidden"
     >
       <div className="max-w-7xl mx-auto">
 
@@ -190,20 +190,14 @@ const ConferenceInfo = () => {
               </div>
 
               {/* Event timeline pills */}
-              <div className="space-y-2 mb-6">
-                {[
-                  { time: "09:00 AM", event: "Registration & Welcome", dot: "bg-[#b8f29d]" },
-                  { time: "10:00 AM", event: "Inaugural Ceremony", dot: "bg-emerald-400" },
-                  { time: "11:30 AM", event: "Keynote Sessions", dot: "bg-teal-400" },
-                  { time: "02:00 PM", event: "Technical Paper Presentations", dot: "bg-[#059669]" },
-                  { time: "05:00 PM", event: "Valedictory & Closing", dot: "bg-gray-400" },
-                ].map((item, i) => (
-                  <div key={i} className="flex items-center gap-3 px-4 py-2.5 rounded-xl bg-white/5 border border-white/5 hover:border-white/10 transition-colors">
-                    <span className={`w-2 h-2 rounded-full flex-shrink-0 ${item.dot}`} />
-                    <span className="text-[10px] font-black text-gray-500 w-16 flex-shrink-0">{item.time}</span>
-                    <span className="text-xs font-bold text-gray-300">{item.event}</span>
-                  </div>
-                ))}
+              <div className="flex flex-col items-center justify-center p-8 mb-6 rounded-2xl bg-white/5 border border-white/10 border-dashed">
+                <div className="w-12 h-12 mb-4 rounded-full bg-[#b8f29d]/10 flex items-center justify-center">
+                  <svg className="w-6 h-6 text-[#b8f29d] animate-pulse" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                </div>
+                <h4 className="text-lg font-black text-white tracking-widest uppercase mb-1">Coming Soon</h4>
+                <p className="text-xs font-bold text-gray-500 text-center uppercase tracking-tight">Full conference schedule will be <br /> released shortly</p>
               </div>
 
               {/* Venue pill */}

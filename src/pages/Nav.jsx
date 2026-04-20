@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { gsap } from 'gsap';
 import { useNavigate, useLocation } from 'react-router-dom';
+import rdamselogo from '../assets/rdamselogo.png';
 
 const Nav = () => {
   const navigate = useNavigate();
@@ -121,7 +122,7 @@ const Nav = () => {
                     : isActive ? 'text-black font-bold' : 'text-gray-700 hover:text-black hover:bg-gray-100'
                 }`}
               >
-                {item.name}
+                {item.name === 'Home' ? <img src={rdamselogo} alt="Home" className="h-6 object-contain" /> : item.name}
                 {item.badge && (
                   <span className={`flex items-center justify-center w-[22px] h-[22px] rounded-full text-[11px] font-extrabold pb-[1px] transition-colors duration-300 ${
                     isHome
@@ -139,7 +140,7 @@ const Nav = () => {
         {/* Mobile Navbar Header */}
         <div className="lg:hidden flex items-center justify-between w-full px-4 py-2">
             <span className={`text-lg font-bold px-2 py-1 ${isHome ? 'text-white' : 'text-gray-900'}`}>
-              {activeTab}
+              {activeTab === 'Home' ? <img src={rdamselogo} alt="Home" className="h-8 object-contain" /> : activeTab}
             </span>
             <button 
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -188,7 +189,7 @@ const Nav = () => {
                 }`}
               >
                 <div className="flex items-center gap-3">
-                  {item.name}
+                  {item.name === 'Home' ? <img src={rdamselogo} alt="Home" className="h-7 object-contain" /> : item.name}
                 </div>
                 {item.badge && (
                   <span className={`flex items-center justify-center w-6 h-6 rounded-full text-[12px] font-extrabold

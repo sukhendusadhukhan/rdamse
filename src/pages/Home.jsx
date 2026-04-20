@@ -5,6 +5,8 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import About from "./About";
 import ConferenceInfo from "./ConferenceInfo";
 import { Link } from "react-router-dom";
+import rdamselogo from "../assets/rdamselogo.png";
+import Surtechlogo from "../assets/SurTechlogo.png"
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -117,15 +119,45 @@ const Home = () => {
         <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-[#b8f29d]/10 rounded-full blur-[120px] floating-blob pointer-events-none" style={{zIndex: 2}} />
         <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-[#059669]/10 rounded-full blur-[100px] floating-blob pointer-events-none" style={{zIndex: 2}} />
 
-        <div className="relative text-center max-w-7xl mx-auto flex flex-col items-center" style={{zIndex: 10}}>
+        {/* Header Logos Section */}
+        <div className="w-full relative z-20 mb-6 pt-6 px-6">
+          <div className="max-w-7xl mx-auto flex flex-row items-center justify-between gap-4">
+            {/* Left: Organizing Institute (SurTech) */}
+            <div className="flex items-center gap-3 group">
+              <img src={Surtechlogo} alt="SurTech Logo" className="h-14 md:h-24 w-auto object-contain transition-all duration-500 group-hover:scale-110 drop-shadow-2xl" />
+              <div className="flex flex-col">
+                <span className="text-white font-black text-lg md:text-2xl leading-none tracking-tight group-hover:text-[#4ade80] transition-colors">SurTech</span>
+                <span className="text-white/50 text-[8px] md:text-[10px] font-bold uppercase tracking-[0.2em]">Dr. Sudhir Chandra Sur Institute of Technology and Sports Complex</span>
+              </div>
+            </div>
+
+            {/* Right: Conference Logo (RDAMSE) */}
+            <div className="flex items-center gap-2 md:gap-4 group">
+              <div className="hidden sm:flex flex-col text-right">
+                <span className="text-[#4ade80] font-black text-lg md:text-2xl leading-none">RDAMSE 2026</span>
+                <span className="text-white/50 text-[8px] md:text-[10px] font-bold uppercase tracking-[0.2em]">2nd International Conference</span>
+              </div>
+              <div className="relative">
+                <div className="absolute -inset-2 bg-[#4ade80]/20 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity" />
+                <img 
+                  src={rdamselogo} 
+                  alt="RDAMSE Logo" 
+                  className="h-14 md:h-24 w-auto object-contain transition-all duration-500 group-hover:scale-110 drop-shadow-2xl"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="relative text-center max-w-7xl mx-auto flex flex-col items-center pt-4 md:pt-6" style={{zIndex: 10}}>
           {/* Badge */}
           <div
             ref={pillRef}
             className="mb-8 inline-flex items-center gap-2 px-5 py-2 rounded-full bg-white/15 backdrop-blur-md border border-[#b8f29d]/60 shadow-lg"
           >
             <span className="w-2 h-2 rounded-full bg-[#4ade80] animate-pulse" />
-            <span className="text-sm font-bold tracking-widest text-[#4ade80] uppercase">
-              2nd Edition • May 07-08, 2026
+            <span className="text-2xl font-bold tracking-widest text-[#4ade80] uppercase">
+              Second International Conference  
             </span>
           </div>
 
@@ -150,7 +182,7 @@ const Home = () => {
           {/* Subtitle with better typography */}
           <div ref={subtitleRef} className="max-w-4xl mx-auto mb-12">
             <p className="text-xl md:text-2xl font-semibold text-white leading-tight mb-4" style={{textShadow: '0 2px 12px rgba(0,0,0,0.7)'}}>
-              Second International Conference on Recent Developments and Applications in Materials Science and Engineering
+              Recent Developments and Applications in Materials Science and Engineering
             </p>
             <div className="mx-auto w-24 h-1.5 bg-gradient-to-r from-[#4ade80] to-[#059669] rounded-full" />
           </div>
@@ -171,39 +203,29 @@ const Home = () => {
 
           {/* Call to Action */}
           <div ref={ctaRef} className="flex flex-wrap items-center justify-center gap-4">
-            <div className="relative">
-              <button
-                disabled
-                className="relative px-10 py-4 bg-gray-400 text-white/70 rounded-full text-lg font-bold shadow-md overflow-hidden cursor-not-allowed opacity-60 select-none"
-              >
-                <span className="relative z-10 flex items-center gap-3">
-                  Register Now
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                  </svg>
-                </span>
-              </button>
-              {/* Coming soon badge */}
-              <span className="absolute -top-2.5 -right-2 px-2.5 py-0.5 text-[9px] font-black uppercase tracking-widest bg-amber-400 text-amber-900 rounded-full shadow-sm border border-amber-300 whitespace-nowrap">
-                Coming Soon
+            <a
+              href="https://docs.google.com/forms/d/e/1FAIpQLSe4H1C30c-7QTIqLL1JaZKMSgCNBak-tdk-l724HMWm-r4xrw/viewform?usp=send_form"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="relative px-10 py-4 bg-black text-white rounded-full text-lg font-bold shadow-[0_0_30px_rgba(0,0,0,0.5)] overflow-hidden transition-all duration-300 hover:scale-105 hover:bg-neutral-900 active:scale-95 group border border-white/10"
+            >
+              <span className="relative z-10 flex items-center gap-3">
+                Register Now
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
               </span>
-            </div>
+              <div className="absolute inset-0 bg-white/5 translate-y-full transition-transform duration-300 group-hover:translate-y-0" />
+            </a>
           </div>
         </div>
 
-        {/* Scroll Indicator */}
-        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2" style={{zIndex: 10}}>
-          <span className="text-[10px] font-black uppercase tracking-[0.3em] text-white/60">Scroll</span>
-          <div className="w-1 h-12 bg-white/20 rounded-full overflow-hidden">
-            <div className="w-full h-1/2 bg-[#4ade80] animate-bounce" />
-          </div>
-        </div>
       </section>
 
       {/* Main Content Sections */}
       <div className="relative z-20 space-y-32 pb-32">
         <About />
-        <ConferenceInfo />
+        
       </div>
     </div>
   );
