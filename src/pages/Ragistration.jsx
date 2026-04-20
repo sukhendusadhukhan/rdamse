@@ -6,7 +6,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 const feeData = [
   {
-    category: "Student",
+    category: "Student UG/PG",
     amount: "₹500",
     currency: "INR",
     icon: "🎓",
