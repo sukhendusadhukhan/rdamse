@@ -5,8 +5,60 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 import clgImg from "../assets/clg.jpg";
 import flyerImg from "../assets/flyer.jpeg";
+import rdamselogo from "../assets/rdamselogo.png";
+import Surtechlogo from "../assets/SurTechlogo.png";
+import ConferenceInfo from "./ConferenceInfo";
 
-gsap.registerPlugin(ScrollTrigger);
+// Event Gallery Images
+import event1 from "../assets/event1.jpeg";
+import event2 from "../assets/event2.jpeg";
+import event3 from "../assets/event3.jpeg";
+import event4 from "../assets/event4.jpeg";
+import event5 from "../assets/event5.jpeg";
+
+const SurTechLogo = () => (
+  <img src={Surtechlogo} alt="SurTech Logo" className="h-10 md:h-14 w-auto object-contain" />
+);
+
+const eventMoments = [
+  {
+    title: "Inaugural Ceremony",
+    tag: "RDAMSE 2024",
+    img: event1,
+    accent: "#059669",
+    description: "Launch of the 1st edition bringing together global visionaries in Material Science."
+  },
+  {
+    title: "Technical Sessions",
+    tag: "Knowledge Sharing",
+    img: event2,
+    accent: "#b8f29d",
+    description: "Deep-dives into advanced manufacturing and sustainable engineering applications."
+  },
+  {
+    title: "International Keynotes",
+    tag: "Global Perspectives",
+    img: event3,
+    accent: "#059669",
+    description: "World-renowned speakers sharing insights on the future of nanotechnology."
+  },
+  {
+    title: "Panel Discussions",
+    tag: "Industry Connect",
+    img: event4,
+    accent: "#b8f29d",
+    description: "Bridging the gap between academic research and industrial implementation."
+  },
+  {
+    title: "Award Ceremony",
+    tag: "Excellence",
+    img: event5,
+    accent: "#059669",
+    description: "Recognizing outstanding contributions and breakthrough research papers."
+  }
+];
+
+gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
 const About = () => {
   const location = useLocation();
